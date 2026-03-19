@@ -33,7 +33,35 @@ jobs:
            "body": "mera content",
            "userId": 2
            }'
-         curl https://jsonplaceholder.typicode.com/todos/2 > outputfile1.json | cat outputfile1.json
-            
+        
+         # To Verify whether ye data post hua bhi h server pr ya ni
+         curl https://jsonplaceholder.typicode.com/todos/2 > outputfile1.json | echo "After POST result is ${outputfile1.json}"
+         
+     - name: response control krna API ka
+       run: |
+         curl https://jsonplaceholder.typicode.com/todos/2 > outputfile3.json
+         echo "redirection ka output h: $outputfile3.json}
+
+         # jo kaam redirection se kra rhe h vo same kaam -o flag se kra rhe h.API ka response outputfile4.json me aa k store ho jaega
+         curl -o outputfile4.json https://jsonplaceholder.typicode.com/todos/2
+         echo "o flag ka output h: $outputfile4.json}
+
+         # -o /dev/null means output ya response ko discard kr do
+         echo " devnull ko use kr k $(curl -o /dev/null https://jsonplaceholder.typicode.com/todos/2)"
+         
+     # - name: response control krna API ka
+     #   run: |
+     #     # -w "%{http_code}" likhte h status code capture krne k liye
+
+         
+     #     curl 
+     #     if [ "$STATUS" -ne 200 ]; then
+     #      echo "API is failed bcz 200 nhi aya response"
+     #      exit 1
+     #     fi
+
+        
+             
+           
         
          
