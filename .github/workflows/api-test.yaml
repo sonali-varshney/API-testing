@@ -20,7 +20,7 @@ jobs:
      - name: API key
        run: |
          # .kuch API bolti h data chaiye? pehle API key btao.For API key, use -H "Authorization: Bearer <API_KEY_TOKEN>". Note <API_KEY_TOKEN> kbhi bhi workflow me ni likhte.usko pehle secret me store krte h
-          TITLE=$(curl -H "Authorization: Bearer my-secret-key" https://api.example.com/data)
+          TITLE=$(curl -H "Authorization: Bearer my-secret-key" https://jsonplaceholder.typicode.com/todos/1)
           echo "TITLE is: $TITLE"
 
      - name: POST API
