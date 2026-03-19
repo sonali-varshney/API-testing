@@ -14,6 +14,12 @@ jobs:
 
      - name: Fetch only a field say title from the API response.
        run: |
-          TITLE = $(curl https://jsonplaceholder.typicode.com/todos/1 | jq -r '.title'}
+          TITLE = $(curl https://jsonplaceholder.typicode.com/todos/1 | jq -r '.title')
           echo "TITLE is: $TITLE"
+     
+     - name: API key.kuch API bolti h data chaiye? pehle API key btao.For API key, use -H "Authorization: Bearer <API_KEY_TOKEN>"
+       run: |
+          TITLE = $(curl -H "Authorization: Bearer my-secret-key" https://api.example.com/data)
+          echo "TITLE is: $TITLE"
+        
          
