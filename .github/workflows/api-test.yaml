@@ -17,8 +17,9 @@ jobs:
           TITLE = $(curl https://jsonplaceholder.typicode.com/todos/1 | jq -r '.title')
           echo "TITLE is: $TITLE"
      
-     - name: API key.kuch API bolti h data chaiye? pehle API key btao.For API key, use -H "Authorization: Bearer <API_KEY_TOKEN>"
+     - name: API key
        run: |
+         # .kuch API bolti h data chaiye? pehle API key btao.For API key, use -H "Authorization: Bearer <API_KEY_TOKEN>". Note <API_KEY_TOKEN> kbhi bhi workflow me ni likhte.usko pehle secret me store krte h
           TITLE = $(curl -H "Authorization: Bearer my-secret-key" https://api.example.com/data)
           echo "TITLE is: $TITLE"
         
