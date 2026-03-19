@@ -56,7 +56,13 @@ jobs:
          # -w "%{http_code}" likhte h status code capture krne k liye
          
          curl -o statusfile.json -w "%{http_code}" https://jsonplaceholder.typicode.com/todos/1
+         echo "status h ye:"
          cat statusfile.json
+
+         # sirf status code print krana h
+         STATUS=$(curl -o /dev/null -w "%{http_code}" https://jsonplaceholder.typicode.com/todos/1)
+         echo "sirf status h ye: $STATUS"
+         
          # if [ "$STATUS" -ne 200 ]; then
          #  echo "API is failed bcz 200 nhi aya response"
          #  exit 1
