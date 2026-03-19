@@ -20,7 +20,20 @@ jobs:
      - name: API key
        run: |
          # .kuch API bolti h data chaiye? pehle API key btao.For API key, use -H "Authorization: Bearer <API_KEY_TOKEN>". Note <API_KEY_TOKEN> kbhi bhi workflow me ni likhte.usko pehle secret me store krte h
-          TITLE = $(curl -H "Authorization: Bearer my-secret-key" https://api.example.com/data)
+          TITLE=$(curl -H "Authorization: Bearer my-secret-key" https://api.example.com/data)
           echo "TITLE is: $TITLE"
+
+     - name: POST API
+       run: |
+         # GET me server se data lete h. POST Me data bhejte h server ko.-X me btao kon sa method h, -H "Content-Type: application/json" means me json type ka data bhej rhi hu, -d means ye body ha data ki
+         curl -X POST https://jsonplaceholder.typicode.com/posts \
+         -H "Content-Type: application/json" \
+         -d '{
+           "title": "mera-title",
+           "body": "mera content",
+           "userId": 2
+           }'
+         curl https://jsonplaceholder.typicode.com/todos/2 > outputfile1.json | cat outputfile1.json
+            
         
          
