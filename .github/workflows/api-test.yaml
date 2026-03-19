@@ -6,7 +6,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-     - name: Send GET request to the API to get the data from server.Its result will be in JSON. Store this result in a file
+     - name: Send GET request to the API to get the data from server.Its result will be in JSON. Store its response in a file
        run: |
          curl https://jsonplaceholder.typicode.com/todos/1 > outputfile.json 
-         cat outputfile.json
+         echo "Output is:"
+         # cat outputfile.json
+
+      - name: Fetch only a field say title from the API response.
+        run: |
+          TITLE = $(curl https://jsonplaceholder.typicode.com/todos/1 | jq -r '.title'}
+          echo "TITLE is: $TITLE"
+         
