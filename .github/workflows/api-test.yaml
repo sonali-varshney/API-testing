@@ -34,7 +34,7 @@ jobs:
            "userId": 2
            }'
         
-         To Verify whether ye data post hua bhi h server pr ya ni
+         #To Verify whether ye data post hua bhi h server pr ya ni
          curl https://jsonplaceholder.typicode.com/todos/1 > outputfile1.json | echo "After POST result is:" | cat outputfile1.json"
          
      - name: response control krna API ka
