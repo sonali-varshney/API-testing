@@ -15,7 +15,7 @@ jobs:
      - name: Fetch only a field say title from the API response.
        run: |
           TITLE = $(curl https://jsonplaceholder.typicode.com/todos/1 | jq -r '.title')
-          echo "TITLE is: $TITLE"
+          echo "TITLE is: ${TITLE}"
      
      - name: API key
        run: |
